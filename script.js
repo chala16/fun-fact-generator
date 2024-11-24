@@ -15,3 +15,12 @@ function generateFact() {
     const randomIndex = Math.floor(Math.random() * facts.length);
     document.getElementById('fact').textContent = facts[randomIndex];
 }
+
+function copyFact() {
+    const factText = document.getElementById('fact').textContent;
+    navigator.clipboard.writeText(factText).then(() => {
+        alert('Fun fact copied to clipboard!');
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
+}
